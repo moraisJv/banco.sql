@@ -27,3 +27,13 @@ CREATE TABLE IF NOT EXISTS `conta_banco`.`banco` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
+
+-- 4. Criação da Tabela 'conta_banco'
+CREATE TABLE IF NOT EXISTS `conta_banco`.`conta_banco` (
+  `idconta_banco` INT NOT NULL,
+  `conta_nome` VARCHAR(45) NULL,
+  `nome_banco` VARCHAR(45) NULL,
+  `score` VARCHAR(45) NULL,
+  `conta_bancocol` VARCHAR(45) NULL,
+  PRIMARY KEY (`idconta_banco`)
+) ENGINE = InnoDB;
