@@ -12,3 +12,18 @@ CREATE TABLE IF NOT EXISTS `conta_banco`.`usuario` (
   `banco_banco_CNPJ` INT NOT NULL,
   PRIMARY KEY (`CPF_cliente`)
 ) ENGINE = InnoDB;
+-- 3. Criação da Tabela 'banco'
+CREATE TABLE IF NOT EXISTS `conta_banco`.`banco` (
+  `idbanco` INT NOT NULL,
+  `banco_CNPJ` INT NOT NULL,
+  `banco_nome` VARCHAR(45) NULL,
+  `usuario_CPF_cliente` INT NOT NULL,
+  `conta_banco_idconta_banco` INT NOT NULL,
+  PRIMARY KEY (`idbanco`),
+  INDEX `fk_banco_usuario_idx` (`usuario_CPF_cliente` ASC),
+  CONSTRAINT `fk_banco_usuario`
+    FOREIGN KEY (`usuario_CPF_cliente`)
+    REFERENCES `conta_banco`.`usuario` (`CPF_cliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
