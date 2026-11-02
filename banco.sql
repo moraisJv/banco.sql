@@ -71,3 +71,12 @@ CREATE TABLE IF NOT EXISTS `conta_banco`.`trasicao` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
+ALTER TABLE `conta_banco`.`banco` 
+ADD INDEX `fk_banco_conta_banco1_idx` (`conta_banco_idconta_banco` ASC);
+
+ALTER TABLE `conta_banco`.`banco` 
+ADD CONSTRAINT `fk_banco_conta_banco1`
+  FOREIGN KEY (`conta_banco_idconta_banco`)
+  REFERENCES `conta_banco`.`conta_banco` (`idconta_banco`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
